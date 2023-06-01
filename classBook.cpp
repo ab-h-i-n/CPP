@@ -14,23 +14,23 @@ public:
     Book(const string& author, const string& title, double price, const string& publisher, int stockPosition)
         : author(author), title(title), price(price), publisher(publisher), stockPosition(stockPosition) {}
 
-    const string& getAuthor() const {
+     string& getAuthor()  {
         return author;
     }
 
-    const string& getTitle() const {
+     string& getTitle()  {
         return title;
     }
 
-    double getPrice() const {
+    double getPrice()  {
         return price;
     }
 
-    const string& getPublisher() const {
+     string& getPublisher()  {
         return publisher;
     }
 
-    int getStockPosition() const {
+    int getStockPosition()  {
         return stockPosition;
     }
 };
@@ -48,12 +48,7 @@ public:
         }
     }
 
-    ~Stock() {
-        for (int i = 0; i < size; i++) {
-            delete books[i];
-        }
-        delete[] books;
-    }
+    
 
     void addBook(int index, const string& author, const string& title, double price, const string& publisher, int stockPosition) {
         if (index >= 0 && index < size) {
@@ -98,6 +93,13 @@ public:
         if (!found) {
             cout << "Book not found in the inventory." << endl;
         }
+    }
+
+    ~Stock() {
+        for (int i = 0; i < size; i++) {
+            delete books[i];
+        }
+        delete[] books;
     }
 };
 
