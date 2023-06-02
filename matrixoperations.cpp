@@ -49,27 +49,28 @@ public:
         return temp;
     }
 
-    Matrix operator* (Matrix b) {
-            Matrix temp(rows, b.columns);
-            for (int i = 0; i < rows; i++) {
+    friend Matrix operator* (Matrix a , Matrix b);
+};
+
+Matrix operator* (Matrix a,Matrix b) {
+            Matrix temp(a.rows, b.columns);
+            for (int i = 0; i < a.rows; i++) {
                 for (int j = 0; j < b.columns; j++) {
                     temp.A[i][j] = 0;
-                    for (int k = 0; k < columns; k++) {
-                        temp.A[i][j] += A[i][k] * b.A[k][j];
+                    for (int k = 0; k < a.columns; k++) {
+                        temp.A[i][j] += a.A[i][k] * b.A[k][j];
                     }
                 }
             }
             return temp;
     }
-};
 
 int main() {
 
     int m, n;
 
-    cout << "Enter the order of the matrix: ";
+    cout << "Enter the order of the matrix 1: ";
     cin >> m >> n;
-
     Matrix m1(m, n);
     Matrix m2(m, n);
 
