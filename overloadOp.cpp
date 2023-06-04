@@ -9,8 +9,8 @@ public:
     Vector(int a, int b, int c) : x(a), y(b), z(c) {}
 
     friend Vector operator*(const Vector& v1, const Vector& v2);
-    friend void printVector(const Vector& v);
-    friend void readVector(Vector& v);
+    friend void operator<<(ostream& os, const Vector& v);
+    friend void operator>>(istream& is, Vector& v);
 };
 
 Vector operator*(const Vector& v1, const Vector& v2) {
@@ -20,31 +20,31 @@ Vector operator*(const Vector& v1, const Vector& v2) {
     return Vector(x, y, z);
 }
 
-void printVector(const Vector& v) {
-    cout << "(" << v.x << ", " << v.y << ", " << v.z << ")" << endl;
+void operator<<(ostream& os, const Vector& v) {
+    os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
 }
 
-void readVector(Vector& v) {
+void operator>>(istream& is, Vector& v) {
     cout << "Enter the x-coordinate: ";
-    cin >> v.x;
+    is >> v.x;
     cout << "Enter the y-coordinate: ";
-    cin >> v.y;
+    is >> v.y;
     cout << "Enter the z-coordinate: ";
-    cin >> v.z;
+    is >> v.z;
 }
 
 int main() {
     Vector v1, v2, v3;
 
     cout << "Enter the values for vector v1:\n";
-    readVector(v1);
+    cin >> v1;
     cout << "Enter the values for vector v2:\n";
-    readVector(v2);
+    cin >> v2;
 
     v3 = v1 * v2;
 
     cout << "Result of v1 * v2: ";
-    printVector(v3);
+    cout << v3;
 
     return 0;
 }
