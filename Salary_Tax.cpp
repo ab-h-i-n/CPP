@@ -39,7 +39,7 @@ public:
         cin >> name;
     }
 
-    string getName() const {
+    string getName(){
         return name;
     }
 };
@@ -47,7 +47,7 @@ public:
 class Income_tax : public Salary, public Tax {
 public:
     void calculateTax() {
-        double yearlyIncome = 12 * (bp + 0.3 * bp + 0.1 * bp + 200);
+        double yearlyIncome = total;
         double taxRate = 0.0;
 
         if (yearlyIncome > 60000 && yearlyIncome <= 80000) {
