@@ -7,7 +7,7 @@ class pntr_obj {
     string name;
 
 public:
-    void set_data(int roll, const string& student_name) {
+    void set_data(int roll, string& student_name) {
         this->roll_no = roll;
         this->name = student_name;
     }
