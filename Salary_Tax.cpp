@@ -21,6 +21,10 @@ public:
         cout << "Enter Basic Pay: ";
         cin >> bp;
     }
+
+    double getBP(){
+        return bp;
+    }
 };
 
 class Tax {
@@ -121,6 +125,8 @@ int main() {
             for (int i = 0; i < count; i++) {
                 if (records[i].getName() == searchName) {
                     found = true;
+                    cout<<endl<<"Name: "<<records[i].getName();
+                    cout<<endl<<"Basic Pay: "<<records[i].getBP();
                     records[i].calculateTotal();
                 }
             }
