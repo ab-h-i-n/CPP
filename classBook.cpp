@@ -11,14 +11,16 @@ private:
     int stockPosition;
 
 public:
+
+    Book(){}
     Book(const string& author, const string& title, double price, const string& publisher, int stockPosition)
         : author(author), title(title), price(price), publisher(publisher), stockPosition(stockPosition) {}
 
-     string& getAuthor()  {
+    string& getAuthor()  {
         return author;
     }
 
-     string& getTitle()  {
+    string& getTitle()  {
         return title;
     }
 
@@ -26,7 +28,7 @@ public:
         return price;
     }
 
-     string& getPublisher()  {
+    string& getPublisher()  {
         return publisher;
     }
 
@@ -37,23 +39,18 @@ public:
 
 class Stock {
 private:
-    Book** books;
+    Book* books;
     int size;
 
 public:
     Stock(int size) : size(size) {
-        books = new Book*[size];
-        for (int i = 0; i < size; i++) {
-            books[i] = nullptr;
-        }
+        books = new Book[size];
     }
-
-    
 
     void addBook(int index, const string& author, const string& title, double price, const string& publisher, int stockPosition) {
         if (index >= 0 && index < size) {
-            if (books[index] == nullptr) {
-                books[index] = new Book(author, title, price, publisher, stockPosition);
+            if (books[index].getTitle().empty()) {
+                books[index] = Book(author, title, price, publisher, stockPosition);
                 cout << "Book added to the inventory." << endl;
             } else {
                 cout << "A book already exists at index " << index << "." << endl;
@@ -66,20 +63,20 @@ public:
     void searchBook(const string& title, const string& author) {
         bool found = false;
         for (int i = 0; i < size; i++) {
-            if (books[i] != nullptr && books[i]->getTitle() == title && books[i]->getAuthor() == author) {
+            if (!books[i].getTitle().empty() && books[i].getTitle() == title && books[i].getAuthor() == author) {
                 found = true;
                 cout << "Book found in the inventory." << endl;
-                cout << "Author: " << books[i]->getAuthor() << endl;
-                cout << "Title: " << books[i]->getTitle() << endl;
-                cout << "Price: $" << books[i]->getPrice() << endl;
-                cout << "Publisher: " << books[i]->getPublisher() << endl;
-                int stockPosition = books[i]->getStockPosition();
+                cout << "Author: " << books[i].getAuthor() << endl;
+                cout << "Title: " << books[i].getTitle() << endl;
+                cout << "Price: $" << books[i].getPrice() << endl;
+                cout << "Publisher: " << books[i].getPublisher() << endl;
+                int stockPosition = books[i].getStockPosition();
                 if (stockPosition > 0) {
                     int numCopies;
                     cout << "Enter the number of copies required: ";
                     cin >> numCopies;
                     if (numCopies <= stockPosition) {
-                        double totalCost = numCopies * books[i]->getPrice();
+                        double totalCost = numCopies * books[i].getPrice();
                         cout << "Total cost: $" << totalCost << endl;
                     } else {
                         cout << "Sorry! " << numCopies << " copies are not in stock." << endl;
@@ -96,9 +93,6 @@ public:
     }
 
     ~Stock() {
-        for (int i = 0; i < size; i++) {
-            delete books[i];
-        }
         delete[] books;
     }
 };
