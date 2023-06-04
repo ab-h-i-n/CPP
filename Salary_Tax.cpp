@@ -4,21 +4,21 @@ using namespace std;
 
 class Salary {
 protected:
-    double bp;
+    double bp,da,hra,cca,total;
 
 public:
     Salary() {}
 
     void calculateTotal() {
-        double da = 0.3 * bp;
-        double hra = 0.1 * bp;
-        double cca = 200;
-        double total = 12 * (bp + da + hra + cca);
+        da = 0.3 * bp;
+        hra = 0.1 * bp;
+        cca = 200;
+        total = 12 * (bp + da + hra + cca);
         cout << "\nTotal: " << total << endl;
     }
 
     void acceptData() {
-        cout << "Enter Basic Pay: ";
+        cout << "\nEnter Basic Pay: ";
         cin >> bp;
     }
 
@@ -35,7 +35,7 @@ public:
     Tax() {}
 
     void acceptData() {
-        cout << "Enter Name: ";
+        cout << "\nEnter Name: ";
         cin >> name;
     }
 
@@ -61,6 +61,12 @@ public:
         double incomeTax = taxRate * yearlyIncome;
         cout << "\nIncome Tax: " << incomeTax << endl;
     }
+
+    void showData(){
+
+        cout<<"\nName : "<<name<<endl
+            <<"Basic Pay : "<<bp<<endl;
+    }
 };
 
 int main() {
@@ -85,13 +91,13 @@ int main() {
                 records[count].Tax::acceptData();
                 count++;
             } else {
-                cout << "Array is full. Cannot add more records." << endl;
+                cout << "\nArray is full. Cannot add more records." << endl;
             }
             break;
         }
         case 2: {
             int index;
-            cout << "Enter the index of the record to modify: ";
+            cout << "\nEnter the index of the record to modify: ";
             cin >> index;
             if (index >= 0 && index < count) {
                 records[index].Salary::acceptData();
@@ -103,7 +109,7 @@ int main() {
         }
         case 3: {
             int index;
-            cout << "Enter the index of the record to delete: ";
+            cout << "\nEnter the index of the record to delete: ";
             cin >> index;
             if (index >= 0 && index < count) {
                 for (int i = index; i < count - 1; i++) {
@@ -118,15 +124,14 @@ int main() {
         }
         case 4: {
             string searchName;
-            cout << "Enter the name to search for: ";
+            cout << "\nEnter the name to search for: ";
             cin >> searchName;
 
             bool found = false;
             for (int i = 0; i < count; i++) {
                 if (records[i].getName() == searchName) {
                     found = true;
-                    cout<<endl<<"Name: "<<records[i].getName();
-                    cout<<endl<<"Basic Pay: "<<records[i].getBP();
+                    records[i].showData();
                     records[i].calculateTotal();
                 }
             }
@@ -138,7 +143,7 @@ int main() {
         }
         case 5: {
             int index;
-            cout << "Enter the index of the record to calculate tax: ";
+            cout << "\nEnter the index of the record to calculate tax: ";
             cin >> index;
             if (index >= 0 && index < count) {
                 records[index].calculateTax();
