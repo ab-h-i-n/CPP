@@ -8,13 +8,13 @@ class pntr_obj {
 
 public:
     void set_data(int roll, const string& student_name) {
-        roll_no = roll;
-        name = student_name;
+        this->roll_no = roll;
+        this->name = student_name;
     }
 
     void print() {
-        cout << "Object with roll number " << roll_no << " and name " << name
-             << " invoked the print() function." << endl<<endl;
+        cout << "Object with roll number " << this->roll_no << " and name " << this->name
+             << " invoked the print() function." << endl;
     }
 };
 
