@@ -69,11 +69,6 @@
 using namespace std;
 
 void deleteElement(int a[], int& n) {
-    
-    if (n == 0) {
-        cout << "\nArray is empty.\n";
-        return;
-    }
 
     int x, i, j, choice;
     cout << "\nEnter the element you want to delete: ";
@@ -91,10 +86,17 @@ void deleteElement(int a[], int& n) {
     }
 
     if (found) {
-        cout << "\nNew array is:\n";
-        for (i = 0; i < j; i++)
-            cout << a[i] << "\t";
+        cout << "\nNew array is ";
         n = j;
+        if(n!=0){
+            cout<<endl;
+            for (i = 0; i < j; i++)
+                cout << a[i] << "\t";
+        }
+        else{
+            cout<<"empty"<<endl;
+            return;
+        }
     } else {
         cout << "\nThe element is not found in the array.\n";
     }
