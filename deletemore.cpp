@@ -101,20 +101,21 @@ void deleteElement(int a[], int& n) {
         cout << "\nThe element is not found in the array.\n";
     }
 
+    do{
+
     cout << "\nDo you want to delete another element?\n"
          << "1. Yes\n"
          << "2. No\n"
          << "Enter your choice: ";
     cin >> choice;
 
-    if (choice == 1)
-        deleteElement(a, n);
-    else if (choice == 2)
-        return;
-    else {
-        cout << "\nInvalid choice.\n";
-        return;
+    switch(choice){
+        case 1 : deleteElement(a,n); break;
+        case 2 : return; break;
+        default : cout<<"\nInvalid choice....Try again....\n";break;
     }
+
+    }while(choice!=2);
 }
 
 int main() {
