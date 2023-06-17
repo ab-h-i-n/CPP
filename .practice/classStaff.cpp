@@ -127,7 +127,7 @@ int main() {
     Teacher *T;
     Regular *R;
     Casual *C;
-    Officer *F;
+    Officer *O;
 
     menu:
     system("clear");
@@ -173,7 +173,6 @@ int main() {
                     break;
                 }
                 case 2 :{
-                    delete[] T;
                     goto menu;
                 }
                 default:{
@@ -183,10 +182,62 @@ int main() {
             }
             break;
         }
+        case 2:{
+            system("clear");
+            cout<<"Enter the number of Officers: ";
+            cin>>n;
+
+            O = new Officer[n];
+
+            for(int i=0;i<n;i++){
+                cout<<endl<<"Officer "<<(i+1)<<endl;
+                O[i].inpInfo();
+            }
+
+            int select;
+            case2:
+            cout<<"\n1.Show details of Officer"<<endl
+                <<"2.Go to Main menu"<<endl
+                <<"Enter your choice : "; cin>>select;
+            
+            switch(select){
+
+                case 1 : {
+                    for(int i =0 ;i<n;i++){
+                        cout<<"\nOfficer "<<(i+1)<<endl;
+                        O[i].dispInfo();
+                    }
+                    cout<<endl<<endl;
+                    goto case2;
+                    break;
+                }
+                case 2 :{
+                    goto menu;
+                }
+                default:{
+                    cout<<"Invalid Option!"<<endl;
+                    goto case2;
+                }
+            }
+            break;
+        }
+        case 3 : {
+            system("clear");
+            cout<<"Which type:/-"<<endl;
+            cout<<"1.Regular"<<endl
+                <<"2.Casual"<<endl
+                <<"3.Go to Main menu"<<endl
+                <<"Enter your choice : ";
+                int select;
+                cin>>select;
+
+            switch(select){
+                
+            }
+        }
         default:
         {
-            cout<<"done";
-            break;
+            cout<<"Invalid option!"<<endl;
         }
     }
 
