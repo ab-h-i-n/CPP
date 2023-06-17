@@ -96,7 +96,6 @@ int main() {
     cout << "Enter the number of casual typists: ";
     cin >> ntc;
 
-    
     Regular* R = new Regular[ntr];
     Casual* C = new Casual[ntc];
     Officer* O = new Officer[np];
@@ -107,13 +106,11 @@ int main() {
         int eID;
         cout << "Enter Teacher " << (i + 1) << " details:" << endl;
         cout << "Name: ";
-        cin.ignore();
-        getline(cin, name);
+        cin >> name;
         cout << "Employee ID: ";
         cin >> eID;
         cout << "Subject: ";
-        cin.ignore();
-        getline(cin, subject);
+        cin >> subject;
         T[i] = Teacher(name, eID, subject);
     }
 
@@ -122,8 +119,7 @@ int main() {
         int eID, typSpeed;
         cout << "Enter Regular Typist " << (i + 1) << " details:" << endl;
         cout << "Name: ";
-        cin.ignore();
-        getline(cin, name);
+        cin >> name;
         cout << "Employee ID: ";
         cin >> eID;
         cout << "Typing Speed: ";
@@ -137,8 +133,7 @@ int main() {
         float Dwages;
         cout << "Enter Casual Typist " << (i + 1) << " details:" << endl;
         cout << "Name: ";
-        cin.ignore();
-        getline(cin, name);
+        cin >> name;
         cout << "Employee ID: ";
         cin >> eID;
         cout << "Typing Speed: ";
@@ -153,24 +148,22 @@ int main() {
         int eID;
         cout << "Enter Officer " << (i + 1) << " details:" << endl;
         cout << "Name: ";
-        cin.ignore();
-        getline(cin, name);
+        cin >> name;
         cout << "Employee ID: ";
         cin >> eID;
         cout << "Position: ";
-        cin.ignore();
-        getline(cin, position);
+        cin >> position;
         O[i] = Officer(name, eID, position);
     }
 
     int choice;
     do {
         cout << "View details of /-" << endl
-            << "1. Teachers" << endl
-            << "2. Officers" << endl
-            << "3. Typist" << endl
-            << "0. Exit" << endl
-            << "Enter choice: ";
+             << "1. Teachers" << endl
+             << "2. Officers" << endl
+             << "3. Typist" << endl
+             << "0. Exit" << endl
+             << "Enter choice: ";
         cin >> choice;
 
         switch (choice) {
@@ -190,8 +183,8 @@ int main() {
         }
         case 3: {
             cout << "1. Regular" << endl
-                << "2. Casual" << endl
-                << "Select: ";
+                 << "2. Casual" << endl
+                 << "Select: ";
             int sel;
             cin >> sel;
 
