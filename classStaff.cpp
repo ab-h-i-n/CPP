@@ -221,10 +221,5 @@ int main() {
         }
     } while (choice != 0);
 
-    delete[] T;
-    delete[] R;
-    delete[] C;
-    delete[] O;
-
     return 0;
 }
