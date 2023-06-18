@@ -3,7 +3,6 @@ initialize a string. Overload the operators + and ≤ to add and compare two str
 
 #include <iostream>
 #include <cstring>
-#include <string>
 
 using namespace std;
 
