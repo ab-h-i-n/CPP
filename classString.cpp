@@ -1,4 +1,5 @@
-//29.
+/*29.Create a class “string” as user defined string type. Include constructors to create and
+initialize a string. Overload the operators + and ≤ to add and compare two strings.*/
 
 #include <iostream>
 #include <cstring>
