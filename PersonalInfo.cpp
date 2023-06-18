@@ -1,3 +1,10 @@
+/*36.Develop a C++ program to create a database of the personal information system containing
+the following information Name, Date of Birth, Blood group, Policy No. , Height, weight,
+Contact Address, Mobile No., pan id number etc. Design a base class with name, date of
+birth, blood group and another base class consisting of the data member such as height and
+weight design one more base class consist of policy number and contact address the derived
+class contain the member of the mobile number and pan id number.*/
+
 #include <iostream>
 using namespace std;
 
