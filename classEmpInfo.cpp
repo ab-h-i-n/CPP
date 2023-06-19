@@ -52,6 +52,7 @@ int main() {
 
     cout << "\n\nEmployee Information:\n" << endl;
     for (int i = 0; i < numEmployees; i++) {
+        cout<<"\nEmployee "<<(i+1)<<endl;
         employees[i]->printData();
     }
 
