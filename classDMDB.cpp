@@ -73,7 +73,7 @@ int main() {
 
     DM result = addDistance(dm, db);
 
-    cout << "Result: ";
+    cout << "\nSum of the distances :- "<<endl;
     result.displayData();
 
     return 0;
