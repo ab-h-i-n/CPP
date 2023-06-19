@@ -26,7 +26,7 @@ public:
     }
 
     void displayData() const {
-        cout << "Distance: " << meters << " meters, " << centimeters << " centimeters" << endl;
+        cout << "\nDistance: " << meters << " meters, " << centimeters << " centimeters" << endl;
     }
 
     friend DM addDistanceC(const DM& dm, const DB& db);
@@ -48,7 +48,7 @@ public:
     }
 
     void displayData() const {
-        cout << "Distance: " << feet << " feet, " << inches << " inches" << endl;
+        cout << "\nDistance: " << feet << " feet, " << inches << " inches" << endl;
     }
 
     friend DM addDistanceC(const DM& dm, const DB& db);
@@ -91,26 +91,37 @@ int main() {
     db.readData();
 
     int ch;
-    cout<<"In which format do you want answer "<<endl
-        <<"1.Meters and Centimeter "<<endl
-        <<"2.Feet and Inches"<<endl
-        <<"Enter your choice : ";
-    cin>>ch;
+    do{
 
-    switch(ch){
+        cout<<"\n\nIn which format do you want answer "<<endl
+            <<"1.Meters and Centimeter "<<endl
+            <<"2.Feet and Inches"<<endl
+            <<"0.Exit"<<endl
+            <<"Enter your choice : ";
+        cin>>ch;
 
-        case 1 : {
-            DM result = addDistanceC(dm,db);
-            result.displayData();
+        switch(ch){
+
+            case 1 : {
+                DM result = addDistanceC(dm,db);
+                cout<<"\nSum of Distances : ";
+                result.displayData();
+                break;
+            }
+            case 2:{
+                DB result = addDistanceF(dm,db);
+                cout<<"\nSum of Distances : ";
+                result.displayData();
+                break;
+            }
+            case 0: exit(0) ; break;
+            default:{
+                cout<<"Invalid Choice !";
+                break;
+            }
         }
-        case 2:{
-            DB result = addDistanceF(dm,db);
-            result.displayData();
-        }
-        default:{
-            cout<<"Invalid Choice !";
-        }
-    }
+
+    }while(ch!=0);
 
     return 0;
 }
