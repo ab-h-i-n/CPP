@@ -30,7 +30,6 @@ public:
     }
 
     void printData() {
-        cout << "\n\nEmployee Details:" << endl;
         cout << "Name: " << name << endl;
         cout << "Designation: " << designation << endl;
         cout << "Age: " << age << endl;
@@ -40,22 +39,28 @@ public:
 };
 
 int main() {
-    vector<Employee*> employees;
-    int numEmployees;
 
+    int numEmployees;
     cout << "Enter the number of employees: ";
     cin >> numEmployees;
 
+    Employee* employees[numEmployees];
+
     for (int i = 0; i < numEmployees; i++) {
-        Employee* emp = new Employee();
-        emp->readData();
-        employees.push_back(emp);
+        employees[i] = new Employee();
+        employees[i]->readData();
     }
 
     cout << "\n\nEmployee Information:\n" << endl;
-    for (int i = 0; i < employees.size(); i++) {
+    for (int i = 0; i < numEmployees; i++) {
         employees[i]->printData();
     }
 
+    // Clean up memory
+    for (int i = 0; i < numEmployees; i++) {
+        delete employees[i];
+    }
+
     return 0;
+
 }
