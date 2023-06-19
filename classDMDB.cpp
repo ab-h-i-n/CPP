@@ -29,7 +29,8 @@ public:
         cout << "Distance: " << meters << " meters, " << centimeters << " centimeters" << endl;
     }
 
-    friend DM addDistance(const DM& dm, const DB& db);
+    friend DM addDistanceC(const DM& dm, const DB& db);
+    friend DB addDistanceF(const DM& dm, const DB& db);
 };
 
 class DB {
@@ -50,10 +51,11 @@ public:
         cout << "Distance: " << feet << " feet, " << inches << " inches" << endl;
     }
 
-    friend DM addDistance(const DM& dm, const DB& db);
+    friend DM addDistanceC(const DM& dm, const DB& db);
+    friend DB addDistanceF(const DM& dm, const DB& db);
 };
 
-DM addDistance(const DM& dm, const DB& db) {
+DM addDistanceC(const DM& dm, const DB& db) {
     DM result;
     int totalCentimeters = dm.meters * 100 + dm.centimeters + (db.feet * 12 + db.inches) * 2.54;
     result.meters = totalCentimeters / 100;
@@ -61,9 +63,26 @@ DM addDistance(const DM& dm, const DB& db) {
     return result;
 }
 
+DB addDistanceF(const DM& dm, const DB& db){
+    
+    DB result;
+    int totalCentimeters = dm.meters * 100 + dm.centimeters + (db.feet * 12 + db.inches) * 2.54;
+    int totalInches =  totalCentimeters *0.393701;
+
+    int totalFeet = totalInches / 12;
+    totalInches =  totalInches % 12; 
+
+    result.feet = totalFeet;
+    result.inches = totalInches;
+
+    return result;
+    
+}
+
 int main() {
     DM dm;
     DB db;
+
 
     cout << "Enter distance in meters and centimeters:-"<< endl<<endl;
     dm.readData();
@@ -71,10 +90,27 @@ int main() {
     cout << "\n\nEnter distance in feet and inches:-"<<endl<< endl;
     db.readData();
 
-    DM result = addDistance(dm, db);
+    int ch;
+    cout<<"In which format do you want answer "<<endl
+        <<"1.Meters and Centimeter "<<endl
+        <<"2.Feet and Inches"<<endl
+        <<"Enter your choice : ";
+    cin>>ch;
 
-    cout << "\nSum of the distances :- "<<endl;
-    result.displayData();
+    switch(ch){
+
+        case 1 : {
+            DM result = addDistanceC(dm,db);
+            result.displayData();
+        }
+        case 2:{
+            DB result = addDistanceF(dm,db);
+            result.displayData();
+        }
+        default:{
+            cout<<"Invalid Choice !";
+        }
+    }
 
     return 0;
 }
