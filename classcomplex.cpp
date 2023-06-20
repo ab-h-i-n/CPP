@@ -27,9 +27,22 @@ public:
 
 int main() {
     Complex c1, c2, c3;
+    float real , imaginary;
 
-    c1.set(2.5, 3.7);
-    c2.set(1.8, 4.2);
+    cout<<"Enter the real part of complex number 1 : ";
+    cin>>real;
+    cout<<"Enter the imaginary part of complex number 1: ";
+    cin>>imaginary;
+
+    c1.set(real, imaginary);
+
+
+    cout<<"\nEnter the real part of complex number 2 : ";
+    cin>>real;
+    cout<<"Enter the imaginary part of complex number 2: ";
+    cin>>imaginary;
+
+    c2.set(real, imaginary);
 
     c3 = Complex::sum(c1,c2);
 
