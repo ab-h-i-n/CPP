@@ -28,12 +28,19 @@ class Time{
 int main(){
 
     Time t1,t2,t3;
+    int h,m;
 
-    t1.setTime(20,45);
-    t2.setTime(1,30);
+    cout<<"Enter Time 1 hours and minutes : ";
+    cin>>h>>m;
+    t1.setTime(h,m);
+
+    cout<<"Enter Time 2 hours and minutes : ";
+    cin>>h>>m;
+    t2.setTime(h,m);
+
     t3 = Time::sum(t1,t2);
 
-    cout<<"Time 1 = ";
+    cout<<"\nTime 1 = ";
     t1.showTime();
     cout<<"\n\n";
 
