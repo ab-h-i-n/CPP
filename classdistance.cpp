@@ -13,7 +13,7 @@ public:
     }
 
     void disp() {
-        cout << "Distance: " << feet << " feet, " << inches << " inches" << endl;
+        cout << "\nDistance: " << feet << " feet, " << inches << " inches" << endl;
     }
 
     static Distance add(Distance d1 , Distance d2) {
@@ -32,10 +32,24 @@ public:
 };
 
 int main() {
-    Distance d1, d2, d3;
 
-    d1.set(5, 9.5);
-    d2.set(3, 6.25);
+    Distance d1, d2, d3;
+    int feet ;
+    float inches;
+
+    cout<<"Distance 1:-"<<endl;
+    cout<<"Enter the value of Feet : ";
+    cin>>feet;
+    cout<<"Enter the value of Inches : ";
+    cin>>inches;
+    d1.set(feet,inches);
+
+    cout<<"\nDistance 2:-"<<endl;
+    cout<<"Enter the value of Feet : ";
+    cin>>feet;
+    cout<<"Enter the value of Inches : ";
+    cin>>inches;
+    d2.set(feet,inches);
 
     d3 = Distance::add(d1 , d2);
 
