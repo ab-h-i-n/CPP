@@ -1,5 +1,19 @@
 #include<iostream>
 using namespace std;
+int checkMark(float sub){
+
+    if(sub > 100 || sub < 0){
+        cout<<"Mark should be between 0 and 100!...Try again...\n";
+        return 0;
+    }//else{
+    //     if(sub < 40){
+    //         cout<<"\nYou failed the exam ! "<<endl;
+    //         exit(0);
+    //     }
+    // }
+    return 1;
+}
+
  class student{
 
     int admno;
@@ -16,14 +30,29 @@ using namespace std;
             cin>>admno;
             cout<<"\nEnter name : ";
             cin>>name;
-            cout<<"\nEnter the marks of :\n";
-            cout<<"\n\tEnglish : ";
-            cin>>eng;
-            cout<<"\n\tMaths : ";
-            cin>>maths;
-            cout<<"\n\tScience : ";
-            cin>>science;
 
+            int check;
+            cout<<"\nEnter the marks of :\n";
+
+            do{
+                cout<<"\n\tEnglish : ";
+                cin>>eng;
+                check = checkMark(eng);
+            }while(check != 1);
+
+            do{
+                cout<<"\n\tMaths : ";
+                cin>>maths;
+                check = checkMark(maths);
+            }while(check != 1);
+
+            do{
+                cout<<"\n\tScience : ";
+                cin>>science;
+                check = checkMark(science);
+            }while(check != 1);
+
+            
             total = ctotal();
         }
         
@@ -34,7 +63,9 @@ using namespace std;
                 <<"English : "<<eng<<endl
                 <<"Maths : "<<maths<<endl
                 <<"Science : "<<science<<endl
-                <<"Total : "<<total<<endl<<endl;
+                <<"Total : "<<total<<" / 300"<<endl<<endl
+                <<"You Passed the exam !"<<endl<<endl;
+                
         }
 
  };
@@ -44,7 +75,7 @@ using namespace std;
     student s1;
 
     s1.Takedata();
-    cout<<"\n\nDetails of Students";
+    cout<<"\n\nDetails of Student";
     s1.Showdata();
  
  }
