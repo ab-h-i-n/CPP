@@ -1,18 +1,5 @@
 #include<iostream>
 using namespace std;
-int checkMark(float sub){
-
-    if(sub > 100 || sub < 0){
-        cout<<"Mark should be between 0 and 100!...Try again...\n";
-        return 0;
-    }//else{
-    //     if(sub < 40){
-    //         cout<<"\nYou failed the exam ! "<<endl;
-    //         exit(0);
-    //     }
-    // }
-    return 1;
-}
 
  class student{
 
@@ -20,37 +7,38 @@ int checkMark(float sub){
     char name[20];
     float eng,maths,science,total;
     float ctotal(){
-            return eng + maths + science;
+
+            if(eng<40 || maths<40 || science<40){
+                return 0;
+            }else{
+                return eng+maths+science;
+            }
         }
 
     public:
+
+        float check(string sub,float mark){
+
+            cout<<endl<<sub<<" : ";
+            cin>>mark;
+            if(mark > 100 || mark < 0){
+                cout<<"Mark should be between 100 and 0 !.......Re-Enter !";
+                return 0;
+            }else{
+                return mark;
+            }
+        }
 
         void Takedata(){
             cout<<"\nEnter admno : ";
             cin>>admno;
             cout<<"\nEnter name : ";
             cin>>name;
-
-            int check;
             cout<<"\nEnter the marks of :\n";
 
-            do{
-                cout<<"\n\tEnglish : ";
-                cin>>eng;
-                check = checkMark(eng);
-            }while(check != 1);
-
-            do{
-                cout<<"\n\tMaths : ";
-                cin>>maths;
-                check = checkMark(maths);
-            }while(check != 1);
-
-            do{
-                cout<<"\n\tScience : ";
-                cin>>science;
-                check = checkMark(science);
-            }while(check != 1);
+            do{eng = check("English",eng);}while(eng == 0);
+            do{maths = check("Maths",maths);}while(maths == 0);
+            do{science = check("Science",science);}while(science == 0);
 
             
             total = ctotal();
@@ -63,8 +51,12 @@ int checkMark(float sub){
                 <<"English : "<<eng<<endl
                 <<"Maths : "<<maths<<endl
                 <<"Science : "<<science<<endl
-                <<"Total : "<<total<<" / 300"<<endl<<endl
-                <<"You Passed the exam !"<<endl<<endl;
+                <<"Total : "<<total<<endl<<endl;
+                if(total == 0){
+                    cout<<"You failed the examination!"<<endl;
+                }else{
+                    cout<<"You Passed the examination!"<<endl;
+                }
                 
         }
 
