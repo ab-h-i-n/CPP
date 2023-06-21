@@ -22,7 +22,7 @@ using namespace std;
             cout<<endl<<sub<<" : ";
             cin>>mark;
             if(mark > 100 || mark < 0){
-                cout<<"Mark should be between 100 and 0 !.......Re-Enter !";
+                cout<<"Mark should be between 0 and 100 !.......Re-Enter !";
                 return 0;
             }else{
                 return mark;
