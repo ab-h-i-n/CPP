@@ -45,15 +45,15 @@ bool checkBldgrp() {
         cout << "Date Of Birth: ";
         getline(cin, dob);
 
-        bool verified;
+        bool valid;
         do{
 
             cout << "Blood Group: ";
             getline(cin, bldgrp);
-            verified = checkBldgrp();
-            if(!verified)
+            valid = checkBldgrp();
+            if(!valid)
                 cout<<"Not an Valid Blood Group!..Re-Try!"<<endl;
-        }while(!verified);
+        }while(!valid);
     }
 };
 
@@ -90,25 +90,25 @@ bool checkWeight(){
 
     void inpInfo() {
 
-        bool verifiedH;
+        bool validH;
 
         do{
             cout << "Height(in Cm): ";
             cin >> height;
-            verifiedH = checkHeight();
-            if(!verifiedH)
+            validH = checkHeight();
+            if(!validH)
                 cout<<"Height should be between 80cm and 200cm !....Re-Try !"<<endl;
-        }while(!verifiedH);
+        }while(!validH);
     
-        bool verifiedW;
+        bool validW;
 
         do{
             cout << "Weight(in Kg): ";
             cin >> weight;
-            verifiedW = checkWeight();
-            if(!verifiedW)
+            validW = checkWeight();
+            if(!validW)
                 cout<<"Height should be between 20kg and 300kg....Re-Try!"<<endl;
-        }while(!verifiedW);
+        }while(!validW);
     }
 };
 
