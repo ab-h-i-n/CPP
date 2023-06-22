@@ -6,6 +6,7 @@ weight design one more base class consist of policy number and contact address t
 class contain the member of the mobile number and pan id number.*/
 
 #include <iostream>
+#include<string>
 using namespace std;
 
 class PersonalInfo {
@@ -14,6 +15,22 @@ class PersonalInfo {
     string bldgrp;
 
 public:
+
+bool checkBldgrp() {
+
+    if ((bldgrp == "A+" || bldgrp == "a+")||
+    (bldgrp == "A-" || bldgrp == "a-")||
+    (bldgrp == "B+" || bldgrp == "b+")||
+    (bldgrp == "AB+"|| bldgrp == "ab+")||
+    (bldgrp == "AB-"|| bldgrp == "ab-")||
+    (bldgrp == "O+" || bldgrp == "o+")||
+    (bldgrp == "O-" || bldgrp == "o-")){
+        return true;
+    }else {
+        return false;
+    }
+}
+
     void dispInfo() {
         cout << "\n\nPersonal Details:-" << endl
              << "Name: " << name << endl
@@ -27,8 +44,16 @@ public:
         getline(cin, name);
         cout << "Date Of Birth: ";
         getline(cin, dob);
-        cout << "Blood Group: ";
-        getline(cin, bldgrp);
+
+        bool verified;
+        do{
+
+            cout << "Blood Group: ";
+            getline(cin, bldgrp);
+            verified = checkBldgrp();
+            if(!verified)
+                cout<<"Not an Valid Blood Group!..Re-Try!"<<endl;
+        }while(!verified);
     }
 };
 
@@ -37,16 +62,53 @@ class PhysicalInfo {
     double weight;
 
 public:
+
+bool checkHeight(){
+
+    if(height < 80){
+        return false;
+    }else if(height > 200){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+bool checkWeight(){
+    if(weight < 20){
+        return false;
+    }else if(weight > 300){
+        return false;
+    }else{
+        return true;
+    }
+}
     void dispInfo() {
         cout << "Height: " << height << endl
              << "Weight: " << weight<<endl;
     }
 
     void inpInfo() {
-        cout << "Height: ";
-        cin >> height;
-        cout << "Weight: ";
-        cin >> weight;
+
+        bool verifiedH;
+
+        do{
+            cout << "Height(in Cm): ";
+            cin >> height;
+            verifiedH = checkHeight();
+            if(!verifiedH)
+                cout<<"Height should be between 80cm and 200cm !....Re-Try !"<<endl;
+        }while(!verifiedH);
+    
+        bool verifiedW;
+
+        do{
+            cout << "Weight(in Kg): ";
+            cin >> weight;
+            verifiedW = checkWeight();
+            if(!verifiedW)
+                cout<<"Height should be between 20kg and 300kg....Re-Try!"<<endl;
+        }while(!verifiedW);
     }
 };
 
@@ -75,6 +137,18 @@ class PersonalDB : public PersonalInfo, public PhysicalInfo, public PolicyInfo {
     string panId;
 
 public:
+
+bool checktendigit(string value){
+
+    int len = value.length();
+
+    if(len == 10){
+        return true;
+    }else{
+        return false;
+    }
+}
+
     void dispInfo() {
         PersonalInfo::dispInfo();
         PhysicalInfo::dispInfo();
@@ -87,10 +161,24 @@ public:
         PersonalInfo::inpInfo();
         PhysicalInfo::inpInfo();
         PolicyInfo::inpInfo();
-        cout << "Phone Number: ";
-        cin >> phoneNumber;
-        cout << "PAN ID: ";
-        cin>>panId;
+
+        bool validate;
+
+        do{
+            cout << "Phone Number(10 digit): +91 ";
+            cin >> phoneNumber;
+            validate = checktendigit(phoneNumber);
+            if(!validate)
+                cout<<"Not a valid 10 digit phone number....! Re-Enter ! "<<endl;
+        }while(!validate);
+
+        do{
+            cout << "PAN ID(10 digit): ";
+            cin>>panId;
+            validate = checktendigit(panId);
+            if(!validate)
+                cout<<"Not a valid 10 digit PAN ID....! Re-Enter ! "<<endl;
+        }while(!validate);
     }
 };
 
