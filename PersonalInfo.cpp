@@ -21,6 +21,7 @@ bool checkBldgrp() {
     if ((bldgrp == "A+" || bldgrp == "a+")||
     (bldgrp == "A-" || bldgrp == "a-")||
     (bldgrp == "B+" || bldgrp == "b+")||
+    (bldgrp == "B-" || bldgrp == "b-")||
     (bldgrp == "AB+"|| bldgrp == "ab+")||
     (bldgrp == "AB-"|| bldgrp == "ab-")||
     (bldgrp == "O+" || bldgrp == "o+")||
@@ -107,7 +108,7 @@ bool checkWeight(){
             cin >> weight;
             validW = checkWeight();
             if(!validW)
-                cout<<"Height should be between 20kg and 300kg....Re-Try!"<<endl;
+                cout<<"Weight should be between 20kg and 300kg....Re-Try!"<<endl;
         }while(!validW);
     }
 };
@@ -162,23 +163,23 @@ bool checktendigit(string value){
         PhysicalInfo::inpInfo();
         PolicyInfo::inpInfo();
 
-        bool validate;
+        bool valid;
 
         do{
             cout << "Phone Number(10 digit): +91 ";
             cin >> phoneNumber;
-            validate = checktendigit(phoneNumber);
-            if(!validate)
+            valid = checktendigit(phoneNumber);
+            if(!valid)
                 cout<<"Not a valid 10 digit phone number....! Re-Enter ! "<<endl;
-        }while(!validate);
+        }while(!valid);
 
         do{
             cout << "PAN ID(10 digit): ";
             cin>>panId;
-            validate = checktendigit(panId);
-            if(!validate)
+            valid = checktendigit(panId);
+            if(!valid)
                 cout<<"Not a valid 10 digit PAN ID....! Re-Enter ! "<<endl;
-        }while(!validate);
+        }while(!valid);
     }
 };
 
