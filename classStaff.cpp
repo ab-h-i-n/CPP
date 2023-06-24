@@ -173,7 +173,7 @@ int main() {
     cout<<"\n\nEnter the Employee ID to retrive information : ";
     cin>>SearchID;
 
-    cout<<"Employee with ID = "<<SearchID<<" :- "<<endl<<endl;
+    cout<<"\n\nEmployee with ID = "<<SearchID<<" :- "<<endl;
 
     bool IDfound = false;
 
@@ -230,7 +230,7 @@ int main() {
         
     }
 
-    cout<<" does not exist!!"<<endl<<endl;
+    cout<<"does not exist!!"<<endl<<endl;
    
 
     return 0;
