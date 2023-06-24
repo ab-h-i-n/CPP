@@ -132,16 +132,6 @@ public:
     }
 };
 
-Staff* SearchEmp(int SearchID,Staff* employees , int totalSize){
-
-    for(int i=0 ;i<totalSize ;i++){
-
-        if(employees[i].getID() == SearchID){
-            return &employees[i];
-        }
-    }
-    return nullptr;
-}
 
 int main() {
     int nt, no, ntr, ntc;
@@ -179,55 +169,69 @@ int main() {
         O[i].readInfo();
     }
 
-    int totalSize = nt + no + ntr + ntc;
-
-    // Create an array to store all employees
-    employees = new[totalSize];
-
-    int empIndex = 0;
-    // Copy all teachers to the employees array
-    for (int i = 0; i < nt; i++) {
-        employees[empIndex] = T[i];
-        empIndex++;
-    }
-
-    // Copy all officers to the employees array
-    for (int i = 0; i < no; i++) {
-        employees[empIndex] = O[i];
-        empIndex++;
-    }
-
-    // Copy all regular typists to the employees array
-    for (int i = 0; i < ntr; i++) {
-        employees[empIndex] = R[i];
-        empIndex++;
-    }
-
-    //Copy all casual typist to the employees array
-    for(int i = 0 ; i< ntc; i++){
-        employees[empIndex] = C[i];
-        empIndex++;
-    }
-    int terminate = 0;
-    
-    do{
-
     int SearchID;
-    cout<<"Please enter the Employee ID to retrieve information : ";
+    cout<<"\n\nEnter the Employee ID to retrive information : ";
     cin>>SearchID;
 
-    Staff* employee = SearchEmp(SearchID,employees,totalSize);
+    cout<<"Employee with ID = "<<SearchID<<" :- "<<endl<<endl;
 
-    if(employee){
-        cout<<"Employee Found!"<<endl;
-        employee->dispInfo();
-    }else{
-        cout<<"Employee not Found!"<<endl;
-    }
+    bool IDfound = false;
 
     
-    cin>>terminate;
-    }while(terminate != 9);
+    for(int i=0 ;i<nt;i++){
+
+        int id = T[i].getID();
+        if(id == SearchID){
+            IDfound = true;
+            T[i].dispInfo();
+            exit(0);
+        }
+    }
+
+    if(!IDfound){
+
+        for(int i=0 ;i<no;i++){
+
+            int id = O[i].getID();
+            if(id == SearchID){
+                IDfound = true;
+                O[i].dispInfo();
+                exit(0);
+            }
+        }
+        
+    }
+
+    if(!IDfound){
+
+        for(int i=0 ;i<ntr;i++){
+
+            int id = R[i].getID();
+            if(id == SearchID){
+                IDfound = true;
+                R[i].dispInfo();
+                exit(0);
+            }
+        }
+        
+    }
+
+    if(!IDfound){
+
+        for(int i=0 ;i<ntc;i++){
+
+            int id = C[i].getID();
+            if(id == SearchID){
+                IDfound = true;
+                C[i].dispInfo();
+                exit(0);
+            }
+        }
+        
+    }
+
+    cout<<" does not exist!!"<<endl<<endl;
+   
 
     return 0;
 }
