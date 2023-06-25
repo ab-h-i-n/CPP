@@ -58,10 +58,10 @@ int main()
     Polygon *R = new Rectangle;
 
     T->getSides();
-    cout << "Area of" << T->area();
+    cout << "Area of Triangle : " << T->area();
 
     R->getSides();
-    cout << "Area " << R->area();
+    cout << "Area of Rectangle : " << R->area();
 
     return 0;
 }
