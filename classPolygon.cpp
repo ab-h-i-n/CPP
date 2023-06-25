@@ -58,7 +58,7 @@ int main()
     Polygon *R = new Rectangle;
 
     T->getSides();
-    cout << "Area " << T->area();
+    cout << "Area of" << T->area();
 
     R->getSides();
     cout << "Area " << R->area();
