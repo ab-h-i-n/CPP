@@ -8,7 +8,7 @@ should use the runtime polymorphism.*/
 
 using namespace std;
 
- int SIZE = 100;
+const int SIZE = 100;
 
 class Media {
 protected:
@@ -50,7 +50,7 @@ class Book : public Media {
 public:
     Book( string& title,  string& author, int pages) : Media(title, author), pages(pages) {}
 
-    void displayInfo() override {
+    void displayInfo()  {
         cout << "Book: " << title << " by " << author << " (" << pages << " pages)" << endl;
     }
 };
@@ -61,7 +61,7 @@ class Tape : public Media {
 public:
     Tape( string& title,  string& author, int duration) : Media(title, author), duration(duration) {}
 
-    void displayInfo() override {
+    void displayInfo()  {
         cout << "Tape: " << title << " by " << author << " (" << duration << " minutes)" << endl;
     }
 };
@@ -196,7 +196,7 @@ int main() {
                 break;
             }
             case 0:
-                cout << "\n\nExiting the program. Goodbye!" << endl;
+                cout << "\n\nExiting,.............." << endl;
                 return 0;
             default:
                 cout << "\n\nInvalid choice. Please try again." << endl;
