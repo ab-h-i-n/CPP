@@ -16,7 +16,7 @@ protected:
 
 public:
     Staff() : name(""), eID(0) {}
-    Staff(const string& name, int eID) : name(name), eID(eID) {}
+    Staff( string& name, int eID) : name(name), eID(eID) {}
 
     void readInfo() {
         cout << "Name: ";
@@ -40,7 +40,7 @@ class Teacher : public Staff {
 
 public:
     Teacher() : Staff(), sub("") {}
-    Teacher(const string& name, int eID, const string& sub) : Staff(name, eID), sub(sub) {}
+    Teacher( string& name, int eID,  string& sub) : Staff(name, eID), sub(sub) {}
 
     void readInfo() {
         Staff::readInfo();
@@ -61,7 +61,7 @@ protected:
 
 public:
     Typist() : Staff(), typSpeed(0) {}
-    Typist(const string& name, int eID, int typSpeed) : Staff(name, eID), typSpeed(typSpeed) {}
+    Typist( string& name, int eID, int typSpeed) : Staff(name, eID), typSpeed(typSpeed) {}
 
     void readInfo() {
         Staff::readInfo();
@@ -81,7 +81,7 @@ class Officer : public Staff {
 
 public:
     Officer() : Staff(), pos("") {}
-    Officer(const string& name, int eID, const string& pos) : Staff(name, eID), pos(pos) {}
+    Officer( string& name, int eID,  string& pos) : Staff(name, eID), pos(pos) {}
 
     void readInfo() {
         Staff::readInfo();
@@ -99,7 +99,7 @@ public:
 class Regular : public Typist {
 public:
     Regular() : Typist() {}
-    Regular(const string& name, int eID, int typSpeed) : Typist(name, eID, typSpeed) {}
+    Regular( string& name, int eID, int typSpeed) : Typist(name, eID, typSpeed) {}
 
     void readInfo(){
         Typist::readInfo();
@@ -116,7 +116,7 @@ class Casual : public Typist {
 
 public:
     Casual() : Typist(), Dwages(0.0) {}
-    Casual(const string& name, int eID, int typSpeed, float Dwages)
+    Casual( string& name, int eID, int typSpeed, float Dwages)
         : Typist(name, eID, typSpeed), Dwages(Dwages) {}
 
     void readInfo(){
