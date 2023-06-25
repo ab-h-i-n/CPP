@@ -1,6 +1,5 @@
-/*22. Write a program to design a class representing complex numbers and having the
-functionality of performing addition & multiplication of two complex numbers using
-operator overloading.*/
+/*22.Write a Program to overload operators like *, <<, >> using friend function. The following
+overloaded operators should work for a class vector..*/
 
 #include <iostream>
 using namespace std;
