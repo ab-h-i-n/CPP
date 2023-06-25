@@ -1,4 +1,4 @@
-/*39. Write a C++ program to explain virtual function (polymorphism) by creating a base
+/*38. Write a C++ program to explain virtual function (polymorphism) by creating a base
 classc_polygon which has virtual function area(). Two classes rectangle and traingle derived
 from polygon and they have area() to calculate and return the area of rectangle and triangle
 respectively.*/

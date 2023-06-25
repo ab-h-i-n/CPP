@@ -1,4 +1,4 @@
-/*40. Write a C++ program to using friend function to swapping private data of two classes. [ hint:
+/*39. Write a C++ program to using friend function to swapping private data of two classes. [ hint:
 Create two classes class C1 and C2. In class C1 private data members value1 and member
 functions inputdata(parameter), dispalydata() and friend function void
 exchange(parameters), in class C2 private data members value2 and member functions
