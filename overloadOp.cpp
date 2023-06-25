@@ -1,7 +1,6 @@
-/*22.Write a menu driven program to perform matrix operations (Addition, subtraction and
-multiplication) using operator overloading. Try to write the overloaded function for
-multiplication using friend function and other two operations using member functions. Use
-appropriate constructors also.*/
+/*22. Write a program to design a class representing complex numbers and having the
+functionality of performing addition & multiplication of two complex numbers using
+operator overloading.*/
 
 #include <iostream>
 using namespace std;
