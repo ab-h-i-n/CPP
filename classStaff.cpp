@@ -174,61 +174,45 @@ int main() {
     cin>>SearchID;
 
     cout<<"\n\nEmployee with ID = "<<SearchID<<" :- "<<endl;
-
-    bool IDfound = false;
-
     
     for(int i=0 ;i<nt;i++){
 
         int id = T[i].getID();
         if(id == SearchID){
-            IDfound = true;
             T[i].dispInfo();
             exit(0);
         }
     }
 
-    if(!IDfound){
+    for(int i=0 ;i<no;i++){
 
-        for(int i=0 ;i<no;i++){
-
-            int id = O[i].getID();
-            if(id == SearchID){
-                IDfound = true;
-                O[i].dispInfo();
-                exit(0);
-            }
+        int id = O[i].getID();
+        if(id == SearchID){
+            O[i].dispInfo();
+            exit(0);
         }
-        
     }
+    
 
-    if(!IDfound){
+    for(int i=0 ;i<ntr;i++){
 
-        for(int i=0 ;i<ntr;i++){
-
-            int id = R[i].getID();
-            if(id == SearchID){
-                IDfound = true;
-                R[i].dispInfo();
-                exit(0);
-            }
+        int id = R[i].getID();
+        if(id == SearchID){
+            R[i].dispInfo();
+            exit(0);
         }
-        
     }
+    
 
-    if(!IDfound){
+    for(int i=0 ;i<ntc;i++){
 
-        for(int i=0 ;i<ntc;i++){
-
-            int id = C[i].getID();
-            if(id == SearchID){
-                IDfound = true;
-                C[i].dispInfo();
-                exit(0);
-            }
+        int id = C[i].getID();
+        if(id == SearchID){
+            C[i].dispInfo();
+            exit(0);
         }
-        
     }
+        
 
     cout<<"does not exist!!"<<endl<<endl;
    
