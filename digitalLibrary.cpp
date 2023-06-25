@@ -25,10 +25,6 @@ public:
         return title;
     }
 
-    bool isAvailable()  {
-        return available;
-    }
-
     void issue() {
         if (available) {
             available = false;
