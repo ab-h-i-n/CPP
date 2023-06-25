@@ -37,7 +37,7 @@ public:
         }while(!valid);
 
         do{
-            cout<<"\nEnter the number of columns: ";
+            cout<<"Enter the number of columns: ";
             cin>>columns;
             valid = checkRC(columns);
             if(!valid){
@@ -109,7 +109,7 @@ public:
 
     bool operator==(Matrix& m){
 
-        if(rows == m.rows || columns == m.columns){
+        if(rows != m.rows || columns != m.columns){
             return false;
         }
 
@@ -120,6 +120,8 @@ public:
                 }
             }
         }
+
+        return true;
     }
 };
 
