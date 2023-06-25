@@ -1,4 +1,4 @@
-/*42. Write a program for developing a matrix class which can handle integer matrices of different
+/*41. Write a program for developing a matrix class which can handle integer matrices of different
 dimensions. Also overload the operator for addition, multiplication & comparison of
 matrices.*/
 
