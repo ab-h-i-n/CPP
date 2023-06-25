@@ -54,14 +54,14 @@ public:
 int main()
 {
 
-    Polygon *T = new Triangle;
-    Polygon *R = new Rectangle;
+    Triangle T;
+    Rectangle R;
 
-    T->getSides();
-    cout << "Area of Triangle : " << T->area();
+    T.getSides();
+    cout << "Area of Triangle : " << T.area();
 
-    R->getSides();
-    cout << "Area of Rectangle : " << R->area();
+    R.getSides();
+    cout << "Area of Rectangle : " << R.area();
 
     return 0;
 }
