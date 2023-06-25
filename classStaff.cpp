@@ -48,7 +48,7 @@ public:
         cin >> sub;
     }
 
-    void dispInfo() override {
+    void dispInfo(){
         Staff::dispInfo();
         cout << "Employee Type: Teacher" << endl
              << "Subject: " << sub << endl << endl;
