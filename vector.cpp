@@ -2,7 +2,7 @@
 using namespace std;
 
 class Vector {
-    float values[100];
+    float values[10];
     int size;
 
 public:
@@ -22,7 +22,7 @@ public:
     void displayVector(){
         cout << "(";
         for (int i = 0; i < size; i++) {
-            cout << values[i];
+            cout << int(values[i]);
             if (i != size - 1)
                 cout << ", ";
         }
@@ -59,6 +59,7 @@ int main() {
 
     cout <<"Enter the size of the vectors: ";
     cin >> size;
+    
 
     Vector v1(size), v2(size), v3(size);
 
