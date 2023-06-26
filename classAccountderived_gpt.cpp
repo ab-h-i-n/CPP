@@ -87,30 +87,105 @@ public:
         if (balance < minimumBalance) {
             balance -= serviceCharge;
             cout << "Service charge applied due to balance below minimum: " << serviceCharge << endl;
+        }else{
+            cout<<"Service charge not applied"<<endl;
         }
     }
 };
 
 int main() {
-    SavingsAccount savings("SA001", 5000.0, 0.05);
-    CurrentAccount current("CA001", 10000.0, 5000.0, 100.0);
+    string savingsAccountNumber;
+    double savingsInitialBalance, savingsInterestRate;
+    cout << "Enter Savings Account Number: ";
+    cin >> savingsAccountNumber;
+    cout << "Enter Initial Balance for Savings Account: ";
+    cin >> savingsInitialBalance;
+    cout << "Enter Interest Rate for Savings Account: ";
+    cin >> savingsInterestRate;
+    SavingsAccount savings(savingsAccountNumber, savingsInitialBalance, savingsInterestRate);
+
+    string currentAccountNumber;
+    double currentInitialBalance, currentMinimumBalance, currentServiceCharge;
+    cout << "Enter Current Account Number: ";
+    cin >> currentAccountNumber;
+    cout << "Enter Initial Balance for Current Account: ";
+    cin >> currentInitialBalance;
+    cout << "Enter Minimum Balance for Current Account: ";
+    cin >> currentMinimumBalance;
+    cout << "Enter Service Charge for Current Account: ";
+    cin >> currentServiceCharge;
+    CurrentAccount current(currentAccountNumber, currentInitialBalance, currentMinimumBalance, currentServiceCharge);
+
+    int choice;
+    double amount;
+
+    while (true) {
+        cout << "Menu:" << endl;
+        cout << "1. Deposit to Savings Account" << endl;
+        cout << "2. Withdraw from Savings Account" << endl;
+        cout << "3. Display Savings Account Balance" << endl;
+        cout << "4. Apply Compound Interest to Savings Account" << endl;
+
+        cout << "5. Deposit to Current Account" << endl;
+        cout << "6. Withdraw from Current Account" << endl;
+        cout << "7. Display Current Account Balance" << endl;
+        cout << "8. Check Minimum Balance and Apply Service Charge" << endl;
+        cout << "9. Quit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
 
 
-    cout<<endl<<"..........Savings account.........."<<endl;
-    savings.displayBalance();
-    savings.deposit(2000.0);
-    savings.displayBalance();
-    savings.withdraw(1500.0);
-    savings.applyCompoundInterest();
-    savings.displayBalance();
+    switch (choice) {
+    case 1: // Deposit to Savings Account
+        cout << "Enter amount to deposit: ";
+        cin >> amount;
+        savings.deposit(amount);
+        break;
 
-    cout<<endl<<"..........Current account.........."<<endl;
-    current.displayBalance();
-    current.deposit(5000.0);
-    current.displayBalance();
-    current.withdraw(10000.0);
-    current.checkMinimumBalance();
-    current.displayBalance();
+    case 2: // Withdraw from Savings Account
+        cout << "Enter amount to withdraw: ";
+        cin >> amount;
+        savings.withdraw(amount);
+        break;
 
-    return 0;
+    case 3: // Display Savings Account Balance
+        savings.displayBalance();
+        break;
+
+    case 4: // Apply Compound Interest to Savings Account
+        savings.applyCompoundInterest();
+        break;
+
+    case 5: // Deposit to Current Account
+        cout << "Enter amount to deposit: ";
+        cin >> amount;
+        current.deposit(amount);
+        break;
+
+    case 6: // Withdraw from Current Account
+        cout << "Enter amount to withdraw: ";
+        cin >> amount;
+        current.withdraw(amount);
+        break;
+
+    case 7: // Display Current Account Balance
+        current.displayBalance();
+        break;
+
+    case 8: // Check Minimum Balance and Apply Service Charge
+        current.checkMinimumBalance();
+        break;
+
+    case 9: // Quit
+        cout << "Exiting program..." << endl;
+        return 0;
+
+    default:
+        cout << "Invalid choice. Please try again." << endl;
+        break;
 }
+
+}
+   return 0;
+}
+
