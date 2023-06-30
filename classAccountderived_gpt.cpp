@@ -115,7 +115,7 @@ int main() {
     int choice;
     double amount;
     string savingsAccountNumber, currentAccountNumber;
-    double savingsInitialBalance, savingsInterestRate = 5.7;
+    double savingsInitialBalance, savingsInterestRate = 2.3;
     double currentInitialBalance, currentMinimumBalance = 500, currentServiceCharge = 20;
 
     do {
