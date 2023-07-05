@@ -1,4 +1,4 @@
-/*40. Create a class TIME with data members hours, minutes and seconds. Include constructors to
+/*39. Create a class TIME with data members hours, minutes and seconds. Include constructors to
 read and display time objects. Write a C++ program to add 2 time objects using operator
 overloading.*/
 
