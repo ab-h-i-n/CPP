@@ -39,12 +39,12 @@ int main(){
             case 1:{
                 Shape rect;
                 float len,wid,hei;
-                cout<<endl<<"..................Rectangle..................."<<endl
-                        <<"Length of the rectangle : ";
+                cout<<endl<<"..................Rectangular Box..................."<<endl
+                        <<"Length of the rectangular box : ";
                 cin>>len;
-                cout<<"Width of the rectangle : ";
+                cout<<"Width of the rectangular box :";
                 cin>>wid;
-                cout<<"Height of the rectangle : ";
+                cout<<"Height of the rectangular box : ";
                 cin>>hei;
                 rect.CalcV(len,wid,hei);
                 break;
@@ -55,8 +55,10 @@ int main(){
                 cout<<endl<<"..................Cylinder..................."<<endl
                         <<"Radius of the cylinder : ";
                 cin>>rad;
+
                 cout<<"Height of the cylinder : ";
                 cin>>hei;
+
                 cyl.CalcV(rad,hei);
                 break;
             }
