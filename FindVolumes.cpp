@@ -10,17 +10,32 @@ class Shape{
 public:
 
     void CalcV(float l , float w , float h ){
-        cout<<"\nVolume of the Reactangular box : "<<l*w*h<<endl;
+        cout<<"\nVolume of the Reactangular box : "<<l*w*h<<" cm^3"<<endl;
     }
 
     void CalcV(float r , float h){
-        cout<<"\nVolume of the Cylinder : "<<(pi*r*r*h)<<endl;
+        cout<<"\nVolume of the Cylinder : "<<(pi*r*r*h)<<" cm^3"<<endl;
     }
 
     void CalcV(float S){
-        cout<<"\nVolume of the Cube : "<<(S*S*S)<<endl;
+        cout<<"\nVolume of the Cube : "<<(S*S*S)<<" cm^3"<<endl;
     }
 };
+
+float InputV(string value , string shape){
+
+    float val;
+
+    do{
+    cout<<value<<" of the "<<shape<<" : ";
+    cin>>val;
+    if(val <= 0){
+        cout<<value<<" of the "<<shape<<" should be greater than 0!...."<<endl;
+    }
+    }while(val <= 0);
+
+    return val;
+}
 
 int main(){
 
@@ -34,40 +49,36 @@ int main(){
         int choice;
         cin>>choice;
 
+        string shape;
 
         switch(choice){
             case 1:{
                 Shape rect;
                 float len,wid,hei;
-                cout<<endl<<"..................Rectangular Box..................."<<endl
-                        <<"Length of the rectangular box : ";
-                cin>>len;
-                cout<<"Width of the rectangular box :";
-                cin>>wid;
-                cout<<"Height of the rectangular box : ";
-                cin>>hei;
+                shape = "Rectangular box";
+                cout<<endl<<"..................Rectangular Box..................."<<endl;
+                len = InputV("Length",shape);
+                wid = InputV("Width",shape);
+                hei = InputV("Height",shape);
                 rect.CalcV(len,wid,hei);
                 break;
             }
             case 2 :{
                 Shape cyl;
                 float hei,rad;
-                cout<<endl<<"..................Cylinder..................."<<endl
-                        <<"Radius of the cylinder : ";
-                cin>>rad;
-
-                cout<<"Height of the cylinder : ";
-                cin>>hei;
-
+                shape = "Cylinder";
+                cout<<endl<<"..................Cylinder..................."<<endl;
+                hei = InputV("Height",shape);
+                rad = InputV("Radius",shape);
                 cyl.CalcV(rad,hei);
                 break;
             }
             case 3 :{
                 Shape cub;
                 float side;
-                cout<<endl<<"..................Cube..................."<<endl
-                        <<"Side of the cube : ";
-                cin>>side;
+                shape = "Cube";
+                cout<<endl<<"..................Cube..................."<<endl;
+                side = InputV("Side",shape);
                 cub.CalcV(side);
                 break;
             }
