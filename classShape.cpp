@@ -67,7 +67,7 @@ public:
 
     void display_area(){
 
-        cout<<"\nArea of the Circle : "<<((1.0/2.0)*3.14*x*x)<<endl;
+        cout<<"\nArea of the Circle : "<<(3.14*x*x)<<endl;
     }
 };
 
