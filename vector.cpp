@@ -30,6 +30,16 @@ public:
         cout << ")" << endl;
     }
 
+    void displayIntVector(){
+        cout << "(";
+        for (int i = 0; i < size; i++) {
+            cout << values[i];
+            if (i != size - 1)
+                cout << ", ";
+        }
+        cout << ")" << endl;
+    }
+
     Vector operator*(float scalar){
 
         Vector result(size);
@@ -73,9 +83,9 @@ int main() {
     v2.createVector();
 
     cout<<endl<<"Vector 1: ";
-    v1.displayVector();
+    v1.displayIntVector();
     cout<<"Vector 2: ";
-    v2.displayVector();
+    v2.displayIntVector();
 
     int choice;
     float scalar;
