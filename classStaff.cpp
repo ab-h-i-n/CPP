@@ -15,8 +15,6 @@ protected:
     int eID;
 
 public:
-    Staff() : name(""), eID(0) {}
-    Staff( string& name, int eID) : name(name), eID(eID) {}
 
     void readInfo() {
         cout << "Name: ";
@@ -39,8 +37,6 @@ class Teacher : public Staff {
     string sub;
 
 public:
-    Teacher() : Staff(), sub("") {}
-    Teacher( string& name, int eID,  string& sub) : Staff(name, eID), sub(sub) {}
 
     void readInfo() {
         Staff::readInfo();
@@ -60,8 +56,6 @@ protected:
     int typSpeed;
 
 public:
-    Typist() : Staff(), typSpeed(0) {}
-    Typist( string& name, int eID, int typSpeed) : Staff(name, eID), typSpeed(typSpeed) {}
 
     void readInfo() {
         Staff::readInfo();
@@ -80,8 +74,6 @@ class Officer : public Staff {
     string pos;
 
 public:
-    Officer() : Staff(), pos("") {}
-    Officer( string& name, int eID,  string& pos) : Staff(name, eID), pos(pos) {}
 
     void readInfo() {
         Staff::readInfo();
@@ -98,8 +90,6 @@ public:
 
 class Regular : public Typist {
 public:
-    Regular() : Typist() {}
-    Regular( string& name, int eID, int typSpeed) : Typist(name, eID, typSpeed) {}
 
     void readInfo(){
         Typist::readInfo();
@@ -115,9 +105,6 @@ class Casual : public Typist {
     float Dwages;
 
 public:
-    Casual() : Typist(), Dwages(0.0) {}
-    Casual( string& name, int eID, int typSpeed, float Dwages)
-        : Typist(name, eID, typSpeed), Dwages(Dwages) {}
 
     void readInfo(){
         Typist::readInfo();
